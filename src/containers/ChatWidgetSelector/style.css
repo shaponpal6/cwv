@@ -1,0 +1,19 @@
+
+.chatWidget {
+	display: flex;
+	flex-direction: column;
+	width: 372px;
+	height: calc(100% -37px);
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	border-radius: 16px;
+	pointer-events: auto;
+	-webkit-box-shadow: 0 8px 36px 0 rgba(0, 18, 46, 0.16);
+	box-shadow: 0 8px 36px 0 rgba(0, 18, 46, 0.16);
+	overflow: hidden;
+	z-index: 99999;
+	-webkit-transition: all 2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+	-o-transition: all 2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+	transition: all 2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}

@@ -1,10 +1,14 @@
-import { combineReducers } from 'redux';
-import fuelSavings from './fuelSavingsReducer';
-import { connectRouter } from 'connected-react-router'
+import { combineReducers } from 'redux'
+import todos from './todos'
+import visibilityFilter from './visibilityFilter'
+import currentPageFilter from './currentPageFilter'
+import chatStartButton from './chatStartButton'
+import welcomePage from './welcomePage'
 
-const rootReducer = history => combineReducers({
-  router: connectRouter(history),
-  fuelSavings,
-});
-
-export default rootReducer;
+export default combineReducers({
+  welcomePage,
+  chatStartButton,
+  currentPageFilter,
+  todos,
+  visibilityFilter
+})
