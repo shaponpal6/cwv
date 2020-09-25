@@ -1,0 +1,18 @@
+.wpcwv-startChatButtonBox {
+    display: inline;
+}
+.wpcwv-startChatButton {
+    border: 0;
+    bottom: 28px;
+    position: absolute;
+    right: 28px;
+    -webkit-transition: all .2s cubic-bezier(.45,.05,.55,.95);
+    -o-transition: all .2s cubic-bezier(.45,.05,.55,.95);
+    transition: all .2s cubic-bezier(.45,.05,.55,.95);
+    border-radius: 50%;
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    -webkit-box-shadow: 0 3px 16px 0 rgba(0,0,0,.6), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    box-shadow: 0 3px 16px 0 rgba(0,0,0,.6), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+}

@@ -1,11 +1,7 @@
-// import React from 'react';
-// import ChatButton from '../../components/ChatButton';
-// import { chatStartButton } from '../actions';
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ChatButtonCommonent({chatStartButton}) {
+function ChatButtonComponent({chatStartButton}) {
   return (
     <div>
       <button
@@ -20,9 +16,9 @@ function ChatButtonCommonent({chatStartButton}) {
 }
 
 
-ChatButtonCommonent.propTypes = {
+ChatButtonComponent.propTypes = {
     chatStartButton: PropTypes.func.isRequired,
 };
 
-export default ChatButtonCommonent;
+export default ChatButtonComponent;
 

@@ -14,11 +14,8 @@ export class App extends Component {
     return (
       <div className="container">
         <h2 className="title">React Redux App</h2>
-        {JSON.stringify(this.props)}
-        {JSON.stringify(this.state)}
-        {/* {JSON.stringify(store)} */}
-        <Header />
-        <VisibleTodoList />
+        {/* <Header /> */}
+        {/* <VisibleTodoList /> */}
         <AddTodo />
       </div>
     );

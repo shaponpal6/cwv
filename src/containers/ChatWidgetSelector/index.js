@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ChatWidget from '../ChatWidget';
+import './style.css';
 
 function ChatButtonCommonent({
   widget
 }) {
   if (widget === 'chatWidget')
     return (
-      <div>
-        <h2> Chat Widget</h2>
+      <div className="wpcwv-chatWidget">
+        <ChatWidget/>
       </div>
     );
   else
     return (
-      <div>
+      <div className="wpcwv-chatDashboard">
        <p>Chat Dashboard</p>
       </div>
     );

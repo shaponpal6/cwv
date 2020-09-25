@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './style.css'
 
 function ChatButtonCommonent({onClose, onChat, text}) {
   return (
-    <div>
+    <div className="wpcwv-welcomeMessage">
       <button
         onClick={() => {
           onClose();

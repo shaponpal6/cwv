@@ -1,0 +1,13 @@
+.wpcwv-welcomeMessage {
+    background: #fff;
+    padding: 10px;
+    width: 360px;
+    position: absolute;
+    bottom: 100px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 1pt 12pt rgba(0, 0, 0, .15);
+    box-shadow: 0 1pt 12pt rgba(0, 0, 0, .15);
+    max-height: calc(100% - 140px);
+    right: 20px;
+    margin-left: 20px;
+}

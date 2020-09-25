@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from '../Todo';
-import './list.css';
+import './style.css';
 
 const TodoList = ({ todos, toggleTodo }) => (
   <ul className='list'>

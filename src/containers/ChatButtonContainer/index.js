@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './style.css'
 
 function ChatButton({onClick, title}) {
     return (
-        <div>
-
-            <button onClick={(e)=>onClick(e)}>{title}</button>
+        <div className="wpcwv-startChatButtonBox">
+            <button className="wpcwv-startChatButton" onClick={(e)=>onClick(e)}>{title}</button>
         </div>
     )
 }
