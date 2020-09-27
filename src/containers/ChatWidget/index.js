@@ -3,12 +3,14 @@ import React from 'react'
 import ChatHeader from '../ChatHeader';
 import ChatBody from '../ChatBody';
 import ChatFooter from '../ChatFooter';
+import Experiment from '../Experiment';
 
 function Widget() {
   return (
     <div>
       <ChatHeader/>
       <ChatBody/>
+      <Experiment/>
       <ChatFooter/>
       {/* <App/> */}
     </div>

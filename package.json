@@ -30,8 +30,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@firebase/app": "0.6.11",
+    "@firebase/firestore": "1.17.1",
     "@hot-loader/react-dom": "16.10.2",
     "connected-react-router": "6.5.2",
+    "mitt": "2.1.0",
     "object-assign": "4.1.1",
     "react": "16.11.0",
     "react-dom": "16.11.0",

@@ -1,6 +1,10 @@
+import {firebaseEvents} from '../firebase/firebaseEvents';
+
 const todos = (state = [], action) => {
+  const db = new firebaseEvents();
   switch (action.type) {
     case 'ADD_TODO':
+      db.saveMessage(action);
       return [
         ...state,
         {

@@ -5,6 +5,8 @@ import WelcomePage from './containers/WelcomeToChat';
 import ChatWidgetSelector from './containers/ChatWidgetSelector';
 import localState from './store/state';
 import './styles/widget.css';
+
+
 // import'./styles/widget.css';
 // import './styles/widget.module.css';
 
@@ -72,7 +74,7 @@ export class Route extends Component {
           <ChatWidgetSelector
             widget={this.state.router}
           />
-        )}
+        )} 
         {this.state.welcomeBox && (
           <WelcomePage
             onClose={this.onChatWelcomeBoxClose}
