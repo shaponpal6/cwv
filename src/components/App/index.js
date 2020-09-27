@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types'
-import Header from '../Header';
+// import Header from '../Header';
 import AddTodo from '../../containers/AddTodo';
-import VisibleTodoList from '../../containers/VisibleTodoList';
+// import VisibleTodoList from '../../containers/VisibleTodoList';
 import './app.module.css';
 
 export class App extends Component {

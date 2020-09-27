@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import StartChatButton from './containers/ChatButtonContainer';
 import WelcomePage from './containers/WelcomeToChat';
-// import ChatDashboard from './ChatDashboard';
 import ChatWidgetSelector from './containers/ChatWidgetSelector';
 import localState from './store/state';
 import './styles/widget.css';
 
-
-// import'./styles/widget.css';
-// import './styles/widget.module.css';
 
 export class Route extends Component {
   constructor(props) {
@@ -53,29 +49,26 @@ export class Route extends Component {
   }
   componentWillUnmount() {}
 
-  //componentDidUpdate() will not be invoked if shouldComponentUpdate() returns false.
-  // Use it when connection off
-
+ 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
     console.error('@error: >> ', error);
     return { hasError: true };
   }
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
       return <h1>Something went wrong.</h1>;
     }
     return (
       <div className="wpcwv-container">
+        <h2>jddddddddd</h2>
         
         {this.state.showWidget && (
           <ChatWidgetSelector
             widget={this.state.router}
           />
         )} 
-        {this.state.welcomeBox && (
+        {/* {this.state.welcomeBox && (
           <WelcomePage
             onClose={this.onChatWelcomeBoxClose}
             onChat={this.onChatStartClick}
@@ -85,7 +78,7 @@ export class Route extends Component {
         <StartChatButton
           onClick={this.onChatButtonClick}
           title={this.state.locales.startChat}
-        />
+        /> */}
       </div>
     );
   }

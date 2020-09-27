@@ -1,34 +1,48 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { addTodo } from '../../actions';
+import React, { useState, useEffect, useContext } from 'react';
+// import PropTypes from 'prop-types';
+import { AppContext } from '../../store';
 
 import './style.css';
 
-const Form = ({ dispatch }) => {
-  let input;
+const Form = () => {
+  const [message, setMessage] = useState('');
+  const [state, dispatch] = useContext(AppContext);
+  // const [messages, setMessages] = useState([]);
 
+  useEffect(() => {
+    console.log(state); 
+  }, [state]);
+
+  // Chat Start Button
+  const onSend = (e) => {
+    e.preventDefault();
+    if (!message) return;
+    console.log('message>>', message);
+    // let data = { id: Math.random(), text: message + Math.random() };
+    // setMessages((ownState) => [...ownState, data]);
+    dispatch({
+      type: 'ADD_MESSAGE',
+      payload: { id: Math.random(), text: message },
+    });
+    setMessage('');
+    
+  };
+  const handleInput = (e) => {
+    const { value } = e.target; 
+    setMessage(value);
+  };
   return (
-    <div className='inputForm'>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (!input.value.trim()) {
-            return;
-          }
-          dispatch(addTodo(input.value));
-          input.value = '';
-        }}
-      >
-        <input ref={(node) => (input = node)} />
-        <button type="submit">Save</button>
+    <div className="inputForm">
+      <form onSubmit={onSend}>
+        <input onChange={handleInput} value={message} />
+        <button type="submit">SEND</button>
       </form>
     </div>
   );
 };
 
-Form.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-};
+// Form.propTypes = {
+//   dispatch: PropTypes.func.isRequired,
+// };
 
-export default connect()(Form);
+export default Form;

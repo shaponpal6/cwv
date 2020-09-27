@@ -1,47 +1,40 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
-import mitt from 'mitt';
+import { FirebaseContext } from '../contexts/firebaseContext';
 
-import db from '../firebase/firestore';
+const Experiment2 = () => {
+  
 
-// const emitter = mitt()
 
-export default class Experiment extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-    this.state = {
-      messages: [
-        {
-          id: 0,
-          text: 'Thsi is one',
-        },
-        {
-          id: 1,
-          text: 'Thsi is two',
-        },
-      ],
-      count: 3,
-      query: '',
-    };
 
-    this.updateMessage.bind(this);
+  const db = useContext(FirebaseContext);
+  const messagesDB = db.messages();
 
-    this.emitter = mitt();
-  }
 
-  updateMessage = (ownState) => {
-    console.log('call of duty', ownState);
-    console.log('state22>>>', this.state.messages);
-  };
+  // Declare a new state variable, which we'll call "count"
+   // Declare multiple state variables!
+  //  const [age, setAge] = useState(42);
+   const [message, setMessage] = useState('');
+   const [messages, setMessages] = useState([]);
+
+   // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    // this.state = INITIAL;
+    console.log(messages)
+  }, [messages]);
+
+  // const updateMessage = (ownState) => {
+  //   console.log('call of duty', ownState);
+  //   console.log('state22>>>', this.state.messages);
+  // };
 
   // Chat Start Button
-  onSend = (e) => {
+  const onSend = () => {
     let data = { id: Math.random(), text: 'This is ' + Math.random() };
+    setMessages(ownState => [...ownState, data])
 
-    this.emitter.emit('foo', { a: 'b' })
-
-    db.collection('messages2')
+    // db.collection('messages2')
+    messagesDB
       .add(data)
       .then(function (docRef) {
         console.log('Document written with ID: ', docRef.id);
@@ -51,56 +44,70 @@ export default class Experiment extends Component {
       });
   };
 
-  componentDidMount() {
-    // listen to an event
-    this.emitter.on('foo', (e) => console.log('Mitt  foo', e));
 
+  useEffect(() => {
+    console.log(db);
+     // listen to an event
     // listen to all events
-    // this.emitter.on('*', (type, e) => console.log('Mitt * ', type, e));
-
-    console.log(this.state);
-    var query = db
-      .collection('messages2')
-      // .orderBy("timestamp", "desc")
-      .limit(12);
-
-    // Start listening to the query.
-    query.onSnapshot(function (snapshot) {
+    // var query = db
+    //   .collection('messages2')
+    //   // .orderBy("timestamp", "desc")
+    //   .limit(12);
+      messagesDB.limit(12).onSnapshot(function (snapshot) {
       snapshot.docChanges().forEach(function (change) {
         var message = change.doc.data();
+        console.log('Data on change.........');
         console.log(message);
+        let data = { id: Math.random(), text: 'Firestore >> ' + Math.random() };
+        setMessages(ownState => [...ownState, data])
         // console.log('state11>>>', this.state.messages);
         //var data = this.state.messages.data.filter((x) => x.id !== message.id);
-        
         // this.updateMessage(message);
       });
     });
-  }
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    //   if(prevProps === prevState) return;
-    // console.log(this.state);
-    // console.log('##### ', prevProps, prevState, snapshot);
-  }
-  componentWillUnmount() {}
-  render() {
-    return (
-      <div className="exx">
-        {this.state.messages.map((message) => {
-          console.log(message);
-          return <p key={message.id}>ss {message.text}</p>;
-        })}
-        {console.log(this.state.messages)}
 
-        <input onChange={(node) => this.setState({ query: node })} />
-        <button
-          type="button"
-          onClick={(e) => {
-            this.onSend(this.state.query.input);
-          }}
-        >
-          Save22222
-        </button>
-      </div>
-    );
-  }
+
+    // Get a document, forcing the SDK to fetch from the offline cache.
+    messagesDB.get({source: 'cache'}).then(function(doc) {
+      // Document was found in the cache. If no cached document exists,
+      // an error will be returned to the 'catch' block below.
+      console.log("Cached document data:", doc);
+      console.log("Cached document data:", doc.docs());
+      // console.log("Cached document data:", doc.data());
+    }).catch(function(error) {
+      console.log("Error getting cached document:", error);
+    });
+
+
+  }, []);
+
+  
+  return ( 
+    <div className="exx">
+    {/* <FirebaseContext.Consumer>
+      {(firebase) => {
+        console.log(firebase);
+        return <div>I've access to Firebase and render something.</div>;
+      }}
+    </FirebaseContext.Consumer> */}
+
+    {messages.map((message) => {
+      console.log(message);
+      return <p key={message.id}> {message.text}</p>;
+    })}
+    {console.log(message)}
+
+    <input onChange={(node) => setMessage(node)} />
+    <button
+      type="button"
+      onClick={() => {
+        onSend(message);
+      }}
+    >
+      Save22222
+    </button>
+  </div>
+   );
 }
+ 
+export default Experiment2;
