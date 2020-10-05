@@ -3,8 +3,10 @@ import { AppContext } from './store';
 import WelcomePage from './containers/WelcomeToChat';
 // import ChatWidgetSelector from './containers/ChatWidgetSelector';
 import ChatWidget from './containers/ChatWidget';
+import ChatDashboard from './containers/ChatDashboard';
 // import localState from './store/state';
 import './styles/widget.css';
+import { Camera } from 'react-feather';
 
 const ChatApp = () => {
   const [state, dispatch] = useContext(AppContext);
@@ -42,20 +44,13 @@ const ChatApp = () => {
 
   return (
     <div className="wpcwv-container">
-      <h2>jddddddddd</h2>
-      {/* {this.setRoute('chatWidget')} */}
+      <h2>Do not Think so much. Just work</h2>
+      <Camera/>
 
       {(state.chatRoute === "chatWidget" && state.chatWidget) && <ChatWidget />}
-      {(state.chatRoute === "chatDashboard" && state.chatWidget) && <h2>Dashboard</h2>}
+      {(state.chatRoute === "chatDashboard" && state.chatWidget) && <ChatDashboard/>}
       {(state.chatRoute === "chatIntro" && state.welcomeBox) && <WelcomePage text="welcome!!" onClose={onChatWelcomeBoxClose} onChat={onChatButtonClick}/>}
 
-      {/* {this.state.welcomeBox && (
-          <WelcomePage
-            onClose={this.onChatWelcomeBoxClose}
-            onChat={this.onChatStartClick}
-            text={this.state.locales.startChat}
-          />
-        )} */}
       <div className="wpcwv-startButton">
         <button
           className="wpcwv-button wpcwv-widgetButton wpcwv-theme"

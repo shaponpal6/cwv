@@ -17,7 +17,7 @@ function ChatButtonCommonent({ onClose, onChat, text }) {
 
       <div className="wpcwv-wmBody">
         <h2> {text}</h2>
-        Hi there! I'm Tidus a bot working for TIDIO. I can help you with one of
+        Hi there! I am Tidus a bot working for TIDIO. I can help you with one of
         the topics listed below
       </div>
       <div className="wpcwv-wmFooter">

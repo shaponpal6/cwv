@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react';
-import Picker from 'emoji-picker-react';
+import React, { useEffect, useContext, useState } from 'react';
 // import { ChatWidgetContext } from '../../contexts/chatWidgetContext';
 import { AppContext } from '../../store';
 import Operators from '../../components/Operators';
@@ -7,9 +6,7 @@ import OptionsMenu from '../../components/OptionsMenu';
 // import ChatHeader from '../ChatHeader';
 // import ChatBody from '../ChatBody';
 // import ChatFooter from '../ChatFooter';
-import Message from '../../components/Message';
-import { ArrowDownLeft, Settings, Bell, ArrowLeft } from 'react-feather';
-
+import Message from '../../components/Message'
 import './style.css';
 import './header.css';
 import './body.css';
@@ -19,12 +16,6 @@ function Widget() {
   const [state, dispatch] = useContext(AppContext);
   const [menuState, setMenuState] = useState(false);
   const [message, setMessage] = useState('');
-
-  const [chosenEmoji, setChosenEmoji] = useState(null);
-
-  const onEmojiClick = (event, emojiObject) => {
-    setChosenEmoji(emojiObject);
-  };
 
   // Back to Dashboard
   const onDashboardBack = () => {
@@ -42,8 +33,8 @@ function Widget() {
     });
   };
 
-  // Chat Start Button
-  const onSend = (e) => {
+   // Chat Start Button
+   const onSend = (e) => {
     e.preventDefault();
     if (!message) return;
     const messageText = message;
@@ -56,7 +47,7 @@ function Widget() {
       payload: { id: Math.random(), text: messageText },
     });
   };
-
+  
   const handleInput = (e) => {
     const { value } = e.target;
     setMessage(value);
@@ -69,30 +60,22 @@ function Widget() {
         <div className="wpcwv-chatEvents">
           <div className="wpcwv-chatEventsLeft">
             {state.showWidget && (
-              <button onClick={onDashboardBack}>
-                <ArrowLeft />
-              </button>
+              <button onClick={onDashboardBack}>Back</button>
             )}
+            Dashboard
           </div>
           <div className="wpcwv-chatEventsRight">
             <div
               className="wpcwv-chatEventsMenu"
               onClick={() => setMenuState(!menuState)}
             >
-              <Bell />
-            </div>
-
-            <div
-              className="wpcwv-chatEventsMenu"
-              onClick={() => setMenuState(!menuState)}
-            >
-              <Settings />
+              Menu
             </div>
             <div
               className="wpcwv-chatWidgetClose"
               onClick={() => onCloseWidget()}
             >
-              <ArrowDownLeft />
+              close
             </div>
           </div>
           {menuState && <OptionsMenu />}
@@ -102,38 +85,30 @@ function Widget() {
         )}
       </div>
 
+      
       {/* ----------- Chat Body Container ------------ */}
       <div className="wpcwv-chatBodyWraper">
         {state.messages.map((message) => {
-          return <Message key={message.id} message={message} />;
+          return <Message key={message.id} message={message}/>;
         })}
-
-        <div>
-          {chosenEmoji ? (
-            <span>You chose: {chosenEmoji.emoji}</span>
-          ) : (
-            <span>No emoji Chosen</span>
-          )}
-          <Picker onEmojiClick={onEmojiClick} />
-        </div>
       </div>
       {/* ----------- Chat Footer Container ------------ */}
       <div className="wpcwv-FooterWraper">
-        <div className="wpcwv-widgetFooter">
-          <form className="wpcwv-messageForm" onSubmit={onSend}>
-            {/* <input onChange={handleInput} value={message} /> */}
-            <textarea
-              className="wpcwv-textarea"
-              onChange={handleInput}
-              spellCheck="false"
-              data-gramm="false"
-              value={message}
-              placeholder="This is a description."
-            />
-            <button type="submit">SEND</button>
-          </form>
-        </div>
+      <div className="wpcwv-widgetFooter">
+        <form className="wpcwv-messageForm" onSubmit={onSend}>
+          {/* <input onChange={handleInput} value={message} /> */}
+          <textarea
+            className="wpcwv-textarea"
+            onChange={handleInput}
+            spellCheck="false"
+            data-gramm="false"
+            value={message}
+            placeholder="This is a description."
+          />
+          <button type="submit">SEND</button>
+        </form>
       </div>
+    </div>
     </div>
   );
 }
