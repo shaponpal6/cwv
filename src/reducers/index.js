@@ -10,11 +10,11 @@ const OnOff = (state, key) => {
             ...state,
             chatWidget: !state.chatWidget,
           };
-    case 'SET_POSTS':
-      return {
-        ...state,
-        posts: action.payload,
-      };
+    case 'welcomeBox':
+        return {
+            ...state,
+            welcomeBox: !state.welcomeBox,
+          };
     default:
       return state;
   }
@@ -23,10 +23,10 @@ const Reducer = (state, action) => {
   switch (action.type) {
     case 'ON_OFF':
       return OnOff(state, action.payload);
-    case 'SET_POSTS':
+    case 'SET_ROUTE':
       return {
         ...state,
-        posts: action.payload,
+        chatRoute: action.payload,
       };
     case 'ADD_POST':
       return {

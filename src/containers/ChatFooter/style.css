@@ -22,10 +22,22 @@
     float: left;
     color: #fff;
 } */
+.wpcwv-FooterWraper {
+    width: 100%;
+}
+.wpcwv-widgetFooter {
+    width: auto;
+    background: #E91E63;
+    position: relative;
+    padding: 10px 15px;
+    display: flex;
+}
 .wpcwv-messageForm {
     display: flex;
-    background: #F44336;
-    padding: 10px;
+    /* background: #F44336; */
+    /* padding: 10px; */
+    width: 100%;
+    box-sizing: border-box;
 }
 textarea.wpcwv-textarea {
     font-weight: 400;

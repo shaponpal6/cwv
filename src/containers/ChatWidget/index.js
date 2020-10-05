@@ -12,7 +12,7 @@ import ChatFooter from '../ChatFooter';
 
 function Widget() {
   return (
-    <div>
+    <div className="wpcwv-chatWidget">
       {/* <Store> */}
         {/* <ChatWidgetContext.Provider value={new ChatWidget()}> */}
           <ChatHeader />

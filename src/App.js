@@ -1,87 +1,71 @@
-import React, { Component } from 'react';
-import StartChatButton from './containers/ChatButtonContainer';
-// import WelcomePage from './containers/WelcomeToChat';
-import ChatWidgetSelector from './containers/ChatWidgetSelector';
-import localState from './store/state';
+import React, { useEffect, useContext } from 'react';
+import { AppContext } from './store';
+import WelcomePage from './containers/WelcomeToChat';
+// import ChatWidgetSelector from './containers/ChatWidgetSelector';
+import ChatWidget from './containers/ChatWidget';
+// import localState from './store/state';
 import './styles/widget.css';
 
+const ChatApp = () => {
+  const [state, dispatch] = useContext(AppContext);
 
-export class Route extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-    this.state = { ...localState, hasError: false };
-  }
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
 
   // Chat Button Open / Close
-  onChatButtonClick = (e) => {
+  const onChatButtonClick = (e) => {
     console.log(e);
-    this.setState({
-      ...this.state,
-      showWidget: !this.state.showWidget,
+    onChatStartClick()
+    dispatch({
+      type: 'ON_OFF',
+      payload: 'chatWidget',
     });
   };
 
   // Chat Welcome Open / Close
-  onChatWelcomeBoxClose = (e) => {
-    console.log(e);
-    this.setState({
-      ...this.state,
-      welcomeBox: false,
+  const onChatWelcomeBoxClose = () => {
+    dispatch({
+      type: 'ON_OFF',
+      payload: 'welcomeBox',
     });
   };
 
   // Chat Start Button
-  onChatStartClick = (e) => {
-    console.log(e);
-    this.setState({
-      ...this.state,
-      showWidget: !this.state.showWidget,
+  const onChatStartClick = () => {
+    dispatch({
+      type: 'SET_ROUTE',
+      payload: 'chatWidget',
     });
   };
 
-  componentDidMount() {
-    console.log(this.state);
-  }
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log(this.state);
-    console.log('@@@@ ', prevProps, prevState, snapshot);
-  }
-  componentWillUnmount() {}
 
- 
-  static getDerivedStateFromError(error) {
-    console.error('@error: >> ', error);
-    return { hasError: true };
-  }
+  return (
+    <div className="wpcwv-container">
+      <h2>jddddddddd</h2>
+      {/* {this.setRoute('chatWidget')} */}
 
-  render() {
-    if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
-    }
-    return (
-      <div className="wpcwv-container">
-        <h2>jddddddddd</h2>
-        
-        {this.state.chatWidget && (
-          <ChatWidgetSelector
-            widget={this.state.router}
-          />
-        )} 
-        {/* {this.state.welcomeBox && (
+      {(state.chatRoute === "chatWidget" && state.chatWidget) && <ChatWidget />}
+      {(state.chatRoute === "chatDashboard" && state.chatWidget) && <h2>Dashboard</h2>}
+      {(state.chatRoute === "chatIntro" && state.welcomeBox) && <WelcomePage text="welcome!!" onClose={onChatWelcomeBoxClose} onChat={onChatButtonClick}/>}
+
+      {/* {this.state.welcomeBox && (
           <WelcomePage
             onClose={this.onChatWelcomeBoxClose}
             onChat={this.onChatStartClick}
             text={this.state.locales.startChat}
           />
         )} */}
-        <StartChatButton
-          onClick={this.onChatButtonClick}
-          title={this.state.locales.startChat}
-        />
+      <div className="wpcwv-startButton">
+        <button
+          className="wpcwv-button wpcwv-widgetButton wpcwv-theme"
+          onClick={onChatButtonClick}
+        >
+          Start
+        </button>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default Route;
+export default ChatApp;

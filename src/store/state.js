@@ -1,9 +1,9 @@
 const INITIAL = {
 	
-  router: 'chatWidget',
-  chatWidget: true,
+  chatRoute: 'chatIntro',
+  chatWidget: false,
   showWidget: true,
-  welcomeBox: false,
+  welcomeBox: true,
   isLogedIn: true, 
   chatButton: true,
   operators: [

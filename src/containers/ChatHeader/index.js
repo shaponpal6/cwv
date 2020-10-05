@@ -29,8 +29,8 @@ const Header = () => {
   // Back to Dashboard
   const onDashboardBack = () => {
     dispatch({
-      type: 'ON_OFF',
-      payload: 'showWidget',
+      type: 'SET_ROUTE',
+      payload: 'chatDashboard',
     });
   };
 

@@ -4,7 +4,7 @@ import Girl from '../../images/avater.png'
 import './style.css';
 
 
-function Avatar({ name, avatar }) {
+function Avatar({ name }) {
   return (
     <div className="cwv-avatar">
       <img

@@ -1,19 +1,1 @@
 
-.wpcwv-chatWidget, .wpcwv-chatDashboard {
-    display: flex;
-    flex-direction: column;
-    width: 372px;
-    max-height: calc(100% - 47px);
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    border-radius: 16px;
-    pointer-events: auto;
-    -webkit-box-shadow: 0 8px 36px 0 rgba(0, 18, 46, .16);
-    box-shadow: 0 8px 36px 0 rgba(0, 18, 46, .16);
-    overflow: hidden;
-    z-index: 99999;
-    -webkit-transition: all 2s cubic-bezier(.45, .05, .55, .95);
-    -o-transition: all 2s cubic-bezier(.45, .05, .55, .95);
-    transition: all 2s cubic-bezier(.45, .05, .55, .95);
-}

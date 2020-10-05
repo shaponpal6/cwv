@@ -1,29 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.css'
+import './style.css';
 
-function ChatButtonCommonent({onClose, onChat, text}) {
+function ChatButtonCommonent({ onClose, onChat, text }) {
   return (
     <div className="wpcwv-welcomeMessage">
-      <button
-        onClick={() => {
-          onClose();
-        }}
-      >
-        Close Me
-      </button>
-      <h2> {text}</h2>
-      <button
-        onClick={(e) => {
-          onChat(e);
-        }}
-      >
-        Start Chat
-      </button>
+      <div className="wpcwv-wmHeader">
+        <button className="wpcwv-button"
+          onClick={() => {
+            onClose();
+          }}
+        >
+          Close Me
+        </button>
+      </div>
+
+      <div className="wpcwv-wmBody">
+        <h2> {text}</h2>
+        Hi there! I'm Tidus a bot working for TIDIO. I can help you with one of
+        the topics listed below
+      </div>
+      <div className="wpcwv-wmFooter">
+        <button className="wpcwv-button"
+          onClick={(e) => {
+            onChat(e);
+          }}
+        >
+          Start Chat
+        </button>
+      </div>
     </div>
   );
 }
-
 
 ChatButtonCommonent.propTypes = {
   onClose: PropTypes.func.isRequired,
@@ -32,4 +40,3 @@ ChatButtonCommonent.propTypes = {
 };
 
 export default ChatButtonCommonent;
-

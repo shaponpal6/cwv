@@ -3,7 +3,7 @@ import { AppContext } from '../../store';
 import Ava from '../../images/avater.png';
 
 import './style.css';
-
+ 
 const ChatBody = () => {
   const [state] = useContext(AppContext);
 
@@ -21,7 +21,7 @@ const ChatBody = () => {
         <div className="wpcwv-messageContainer">
           <div className="wpcwv-messageHeader">
             <span className="wpcwv-messageSender">muhammadroshaan</span>
-            <time datetime="Mon Oct 05 2020 13:27:10 GMT+0600 (Bangladesh Standard Time)">
+            <time dateTime="Mon Oct 05 2020 13:27:10 GMT+0600 (Bangladesh Standard Time)">
               Oct 05, 1:27 PM
             </time>
           </div>
