@@ -1,9 +1,10 @@
 const INITIAL = {
 	
   router: 'chatWidget',
+  chatWidget: true,
   showWidget: true,
   welcomeBox: false,
-  isLogedIn: true,
+  isLogedIn: true, 
   chatButton: true,
   operators: [
     { name: 'Shapon Pal', avater: '' },
@@ -15,7 +16,7 @@ const INITIAL = {
     chatWith: 'Chat With222',
     writeMessage: 'Write Message here..',
     startChat: 'Start Chat',
-  },
+  }, 
   messages: [
     {
       id: 'dkdxkd',
@@ -27,7 +28,7 @@ const INITIAL = {
     },
   ],
   query: '',
-  chatWidget: {
+  chatWidget2: {
     header: {
       isLogedIn: false,
       operators: [

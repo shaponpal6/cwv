@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import StartChatButton from './containers/ChatButtonContainer';
-import WelcomePage from './containers/WelcomeToChat';
+// import WelcomePage from './containers/WelcomeToChat';
 import ChatWidgetSelector from './containers/ChatWidgetSelector';
 import localState from './store/state';
 import './styles/widget.css';
@@ -63,7 +63,7 @@ export class Route extends Component {
       <div className="wpcwv-container">
         <h2>jddddddddd</h2>
         
-        {this.state.showWidget && (
+        {this.state.chatWidget && (
           <ChatWidgetSelector
             widget={this.state.router}
           />
@@ -74,11 +74,11 @@ export class Route extends Component {
             onChat={this.onChatStartClick}
             text={this.state.locales.startChat}
           />
-        )}
+        )} */}
         <StartChatButton
           onClick={this.onChatButtonClick}
           title={this.state.locales.startChat}
-        /> */}
+        />
       </div>
     );
   }

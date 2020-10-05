@@ -1,4 +1,4 @@
-.inputForm{
+/* .inputForm{
     display: inline;
 }
 .inputForm form {
@@ -21,4 +21,25 @@
     background: #4CAF50;
     float: left;
     color: #fff;
+} */
+.wpcwv-messageForm {
+    display: flex;
+    background: #F44336;
+    padding: 10px;
+}
+textarea.wpcwv-textarea {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    color: #777;
+    outline: none;
+    resize: none;
+    border-radius: 0;
+    width: 100%;
+    box-shadow: none;
+    height: 100%;
+    border: 0;
+    padding: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }

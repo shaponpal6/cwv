@@ -1,6 +1,7 @@
 import React, {createContext, useReducer} from "react";
 import Reducer from '../reducers';
 import InitState from './state'; 
+import propTypes from 'prop-types';
 
 
 const initialState = {
@@ -19,6 +20,9 @@ const AppContextProvider = ({children}) => {
         </AppContext.Provider>
     )
 };
+AppContextProvider.propTypes = {
+    children: propTypes.node.isRequired
+}
 
 
 export default AppContextProvider;

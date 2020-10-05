@@ -5,6 +5,11 @@ const OnOff = (state, key) => {
             ...state,
             showWidget: !state.showWidget,
           };
+    case 'chatWidget':
+        return {
+            ...state,
+            chatWidget: !state.chatWidget,
+          };
     case 'SET_POSTS':
       return {
         ...state,

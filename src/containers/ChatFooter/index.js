@@ -33,8 +33,9 @@ const Form = () => {
   };
   return (
     <div className="inputForm">
-      <form onSubmit={onSend}>
-        <input onChange={handleInput} value={message} />
+      <form className="wpcwv-messageForm" onSubmit={onSend}>
+        {/* <input onChange={handleInput} value={message} /> */}
+        <textarea className="wpcwv-textarea" onChange={handleInput} spellcheck="false" data-gramm="false">{message}</textarea>
         <button type="submit">SEND</button>
       </form>
     </div>
