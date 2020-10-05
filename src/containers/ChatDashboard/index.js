@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 // import { ChatWidgetContext } from '../../contexts/chatWidgetContext';
 import { AppContext } from '../../store';
 import Operators from '../../components/Operators';

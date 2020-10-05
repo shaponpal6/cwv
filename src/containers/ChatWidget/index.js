@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import Picker from 'emoji-picker-react';
 // import { ChatWidgetContext } from '../../contexts/chatWidgetContext';
 import { AppContext } from '../../store';
 import Operators from '../../components/Operators';
@@ -20,11 +19,7 @@ function Widget() {
   const [menuState, setMenuState] = useState(false);
   const [message, setMessage] = useState('');
 
-  const [chosenEmoji, setChosenEmoji] = useState(null);
 
-  const onEmojiClick = (event, emojiObject) => {
-    setChosenEmoji(emojiObject);
-  };
 
   // Back to Dashboard
   const onDashboardBack = () => {
@@ -108,14 +103,7 @@ function Widget() {
           return <Message key={message.id} message={message} />;
         })}
 
-        <div>
-          {chosenEmoji ? (
-            <span>You chose: {chosenEmoji.emoji}</span>
-          ) : (
-            <span>No emoji Chosen</span>
-          )}
-          <Picker onEmojiClick={onEmojiClick} />
-        </div>
+        
       </div>
       {/* ----------- Chat Footer Container ------------ */}
       <div className="wpcwv-FooterWraper">
