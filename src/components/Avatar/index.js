@@ -13,7 +13,7 @@ function Avatar({ name }) {
         src={Girl}
       />
     </div>
-  );
+  ); 
 }
 
 Avatar.propTypes = {

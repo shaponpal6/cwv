@@ -1,7 +1,7 @@
 const INITIAL = {
 	
-  chatRoute: 'chatIntro',
-  chatWidget: false,
+  chatRoute: 'chatWidget',
+  chatWidget: true,
   showWidget: true,
   welcomeBox: true,
   isLogedIn: true, 

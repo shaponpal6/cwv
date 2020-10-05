@@ -1,15 +1,3 @@
-.wpcwv-chatBodyWraper {
-    width: 100%;
-    height: 344px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    will-change: auto;
-    background: #fff;
-    transition: all .3s;
-    max-height: 420px;
-    min-height: 160px;
-    position: relative;
-}
 .wpcwv-messageWrapper {
     margin: 0;
     line-height: 20px;
@@ -79,4 +67,3 @@
     white-space: pre-line;
     overflow-wrap: break-word;
 }
-
